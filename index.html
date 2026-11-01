@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickFun | Free Online Browser Games</title>
+  <meta name="description" content="QuickFun - The ultimate web arcade with free, instant-play browser games. Zero downloads, zero logins, pure fun.">
+  
+  <!-- Fonts: Orbitron & Rajdhani for futuristic cyberpunk arcade -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/game-stage.css">
+</head>
+<body>
+  <!-- Crystal Poly Geometric Purple & Neon Cyan Backdrop -->
+  <div class="crystal-bg">
+    <div class="poly-facet facet-1"></div>
+    <div class="poly-facet facet-2"></div>
+    <div class="poly-facet facet-3"></div>
+    <div class="poly-facet facet-4"></div>
+    <div class="poly-facet facet-5"></div>
+  </div>
+
+  <!-- Ambient glowing purple & neon blue orbs -->
+  <div class="glow-orb orb-purple-1"></div>
+  <div class="glow-orb orb-purple-2"></div>
+  <div class="glow-orb orb-bright-3"></div>
+
+  <!-- Modern Cyber Top Header Bar -->
+  <header class="poki-header">
+    <div class="header-inner">
+      <div class="header-brand-group">
+        <!-- Mobile/Tablet Sidebar Drawer Toggle Button -->
+        <button class="mobile-sidebar-toggle" id="mobile-sidebar-toggle" aria-label="Toggle Navigation Sidebar" title="Toggle Categories Menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <!-- QuickFun Clean Brand Logo (No container box) -->
+        <a href="#" class="quickfun-logo" id="logo-home-btn" title="QuickFun Home">
+          <img src="assets/images/quickfun-logo-v3.png" alt="QuickFun Logo" class="brand-logo-clean">
+        </a>
+      </div>
+
+      <!-- Cyber Search Bar -->
+      <div class="header-search-banner">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+          </svg>
+          <input 
+            type="text" 
+            id="game-search-input" 
+            placeholder="SEARCH QUICKFUN ARCADE..." 
+            autocomplete="off"
+            spellcheck="false"
+          >
+          <button id="clear-search-btn" class="clear-btn hidden" title="Clear search">✕</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Arcade Application Viewport Layout -->
+  <div class="arcade-layout" id="arcade-layout">
+    <!-- Desktop Application Collapsible Sidebar -->
+    <aside class="app-sidebar" id="app-sidebar" aria-label="Game Categories Sidebar">
+      <!-- Sidebar Top Bar with Title & Collapse Toggle -->
+      <div class="sidebar-top-bar">
+        <div class="sidebar-heading-wrap">
+          <svg class="sidebar-heading-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="2.2">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+          </svg>
+          <span class="sidebar-heading-text">CATEGORIES</span>
+        </div>
+        <button class="sidebar-toggle-btn" id="sidebar-collapse-btn" aria-label="Toggle Sidebar" title="Collapse / Expand Sidebar">
+          <svg class="toggle-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Categories Nav Items / Icon Rail -->
+      <nav class="sidebar-nav" id="category-pills">
+        <button class="nav-item cat-pill active" data-category="all" title="All Games">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+              <path d="M12 2L4 7v10l8 5 8-5V7l-8-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="nav-label">ALL GAMES</span>
+        </button>
+        <button class="nav-item cat-pill" data-category="action" title="Action">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+              <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="12" cy="12" r="2" fill="currentColor"/>
+              <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="nav-label">ACTION</span>
+        </button>
+        <button class="nav-item cat-pill" data-category="arcade" title="Arcade">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+              <rect x="3" y="12" width="18" height="9" rx="3" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M8 12V6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="8" cy="5" r="2.8" fill="currentColor"/>
+              <circle cx="14" cy="16.5" r="1.5" fill="currentColor"/>
+              <circle cx="18" cy="15" r="1.5" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="nav-label">ARCADE</span>
+        </button>
+        <button class="nav-item cat-pill" data-category="racing" title="Racing">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+              <path d="M4 17a9 9 0 1 1 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 14l5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="12" cy="14" r="2" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="nav-label">RACING</span>
+        </button>
+        <button class="nav-item cat-pill" data-category="puzzle" title="Puzzle">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+              <path d="M12 2l8 4.6v9.2L12 20.4l-8-4.6V6.6L12 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M12 2v9.2M20 6.6L12 11.2 4 6.6M12 11.2v9.2" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="11.2" r="2" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="nav-label">PUZZLE</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Main Arcade Content Area (Flex/Grid width adjusts dynamically) -->
+    <main class="arcade-main">
+      <!-- Active Category Header (Clean title only) -->
+      <div class="active-category-header">
+        <div class="category-tag-title">
+          <h1 id="active-category-title">FEATURED ARCADE</h1>
+        </div>
+      </div>
+
+      <!-- Uniform Catalog Grid (All boxes exact same size) -->
+      <div class="catalog-grid" id="games-bento-grid">
+        <!-- Injected dynamically by game-hub.js -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Interactive Game Stage / Modal Player Viewport -->
+  <div id="game-stage-overlay" class="stage-overlay hidden" role="dialog" aria-modal="true">
+    <div class="stage-backdrop"></div>
+    
+    <div class="stage-window">
+      <!-- Stage HUD Top Bar -->
+      <div class="stage-header">
+        <div class="stage-title-group">
+          <div class="stage-badge" id="stage-game-genre">Arcade</div>
+          <h2 id="stage-game-title">Game Title</h2>
+        </div>
+
+        <div class="stage-controls">
+          <!-- In-game player name badge / quick edit -->
+          <div class="player-tag-pill" id="stage-player-pill" title="Click to rename in-game">
+            <span class="avatar-dot">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+                <rect x="2" y="6" width="20" height="13" rx="5" stroke="#00f0ff" stroke-width="1.8" fill="#b026ff" fill-opacity="0.2"/>
+                <path d="M6 12.5h4M8 10.5v4" stroke="#00f0ff" stroke-width="2"/>
+                <circle cx="15.5" cy="11.5" r="1.2" fill="#d946ef"/>
+                <circle cx="18" cy="13.5" r="1.2" fill="#00f0ff"/>
+              </svg>
+            </span>
+            <span id="stage-player-name">PLAYER 1</span>
+            <span class="edit-icon">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#00f0ff" stroke-width="2">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+              </svg>
+            </span>
+          </div>
+
+          <div class="score-display" id="stage-score-container">
+            <span class="score-label">BEST:</span>
+            <span class="score-val" id="stage-best-score">0</span>
+          </div>
+
+          <button id="stage-restart-btn" class="stage-btn" title="Restart Game">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+            </svg>
+          </button>
+
+          <button id="stage-fullscreen-btn" class="stage-btn" title="Toggle Fullscreen">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+            </svg>
+          </button>
+
+          <button id="stage-close-btn" class="stage-btn close-btn" title="Exit to QuickFun">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- In-Game Container Viewport -->
+      <div id="game-canvas-container" class="game-viewport">
+        <!-- Game Canvas mounts here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Player Nickname Modal -->
+  <div id="player-name-modal" class="sub-modal hidden">
+    <div class="sub-modal-content">
+      <div class="modal-icon">
+        <svg viewBox="0 0 24 24" width="40" height="40" fill="none">
+          <rect x="2" y="6" width="20" height="13" rx="5" stroke="#00f0ff" stroke-width="1.8" fill="#b026ff" fill-opacity="0.25"/>
+          <path d="M6 12.5h4M8 10.5v4" stroke="#00f0ff" stroke-width="2"/>
+          <circle cx="15.5" cy="11.5" r="1.5" fill="#d946ef"/>
+          <circle cx="18" cy="13.5" r="1.5" fill="#00f0ff"/>
+        </svg>
+      </div>
+      <h3>PILOT CALLSIGN</h3>
+      <p>Set your in-game alias for local high score leaderboards:</p>
+      <form id="player-name-form" onsubmit="event.preventDefault();">
+        <input 
+          type="text" 
+          id="player-nickname-input" 
+          placeholder="e.g. TURBO_ACE, NEON_V" 
+          maxlength="16" 
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <div class="modal-buttons">
+          <button type="submit" id="save-nickname-btn" class="primary-btn">CONFIRM ALIAS</button>
+          <button type="button" id="cancel-nickname-btn" class="secondary-btn">CANCEL</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Game to Database Modal -->
+  <div id="add-game-modal" class="sub-modal hidden">
+    <div class="sub-modal-content add-game-box">
+      <div class="modal-header-row">
+        <h3>REGISTER CUSTOM TITLE</h3>
+        <button id="close-add-modal-btn" class="stage-btn close-btn">✕</button>
+      </div>
+      <p class="modal-subtext">Registered games integrate into the QuickFun Bento grid immediately.</p>
+
+      <form id="add-game-form" onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <label for="new-game-title">Game Title</label>
+          <input type="text" id="new-game-title" placeholder="e.g. Galactic Pinball" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="new-game-genre">Genre</label>
+            <input type="text" id="new-game-genre" placeholder="e.g. Arcade Reflex" required>
+          </div>
+          <div class="form-group">
+            <label for="new-game-category">Category</label>
+            <select id="new-game-category">
+              <option value="action">Action</option>
+              <option value="arcade">Arcade</option>
+              <option value="racing">Racing</option>
+              <option value="puzzle">Puzzle</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="new-game-icon">Emoji Icon</label>
+            <input type="text" id="new-game-icon" placeholder="e.g. 🎯 or 🛸" value="🎮" maxlength="4">
+          </div>
+          <div class="form-group">
+            <label for="new-game-badge">Badge</label>
+            <input type="text" id="new-game-badge" placeholder="NEW / HOT" value="NEW">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="new-game-path">Module Path (JS file)</label>
+          <input type="text" id="new-game-path" placeholder="../games/your-game/index.js" value="../games/template/index.js" required>
+        </div>
+
+        <div class="form-group">
+          <label for="new-game-desc">Description</label>
+          <input type="text" id="new-game-desc" placeholder="Short description of the gameplay" value="A fun new custom game added to QuickFun!">
+        </div>
+
+        <div class="modal-buttons">
+          <button type="submit" id="submit-add-game-btn" class="primary-btn">Add to Database Now</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="scripts/game-api.js"></script>
+  <script type="module" src="scripts/games.config.js"></script>
+  <script type="module" src="scripts/game-hub.js"></script>
+</body>
+</html>
