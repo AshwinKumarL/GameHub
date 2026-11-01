@@ -389,33 +389,40 @@ class QuickFunHub {
 
   createGameTile(game, index) {
     const tile = document.createElement('div');
-    tile.className = 'game-tile'; // Uniform same size across all catalog cards
+    // Subtle compositional variations across cards
+    const compClasses = ['comp-spotlight', 'comp-asymmetric', 'comp-stripe'];
+    const compClass = compClasses[index % compClasses.length];
+    tile.className = `game-tile ${compClass}`;
 
     const bestScore = gameAPI.getHighScore(game.id);
     const gradient = game.bgGradient || 'linear-gradient(135deg, #100524 0%, #2b0b4e 60%, #0c1933 100%)';
     const iconMarkup = icons[game.iconKey] || icons[game.id] || icons.controller;
+    const accent = game.accentColor || '#00f0ff';
 
     tile.innerHTML = `
       <div class="tile-artwork" style="background: ${gradient};">
-        <span class="tile-top-badge" style="border-color: ${game.accentColor || '#00f0ff'}; color: ${game.accentColor || '#00f0ff'};">
+        <div class="tile-artwork-pattern"></div>
+        <span class="tile-top-badge" style="border-color: ${accent}; color: ${accent};">
+          <span class="badge-dot" style="background: ${accent};"></span>
           ${game.badge || 'READY'}
         </span>
         ${bestScore > 0 ? `<span class="tile-score-badge">${icons.trophy} ${bestScore}</span>` : ''}
         
         <div class="tile-icon-emblem">${iconMarkup}</div>
 
-        <div class="tile-play-hover-btn">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <div class="tile-play-hover-btn" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <polygon points="6 3 20 12 6 21 6 3"></polygon>
           </svg>
         </div>
       </div>
 
       <div class="tile-footer">
-        <div>
+        <div class="tile-info-left">
           <div class="tile-title">${game.title}</div>
           <div class="tile-genre">${game.genre}</div>
         </div>
+        <span class="tile-action-tag">PLAY</span>
       </div>
     `;
 

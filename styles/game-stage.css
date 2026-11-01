@@ -30,7 +30,7 @@
   -webkit-backdrop-filter: blur(24px);
 }
 
-/* Stage Window */
+/* Stage Window - Flatter Surface & Subtle Elevation */
 .stage-window {
   position: relative;
   z-index: 2;
@@ -42,8 +42,8 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.9), 0 0 45px rgba(0, 240, 255, 0.3);
-  border: 1.5px solid rgba(0, 240, 255, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   background: #0d031c;
 }
 
@@ -56,14 +56,14 @@
   border: none;
 }
 
-/* Stage Header Bar */
+/* Stage Header Bar - Flat */
 .stage-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 22px;
-  background: rgba(18, 4, 34, 0.98);
-  border-bottom: 1.5px solid rgba(0, 240, 255, 0.2);
+  background: #110423;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   flex-shrink: 0;
 }
 
@@ -74,25 +74,24 @@
 }
 
 .stage-badge {
-  background: rgba(0, 240, 255, 0.12);
+  background: rgba(0, 240, 255, 0.08);
   color: #00f0ff;
-  border: 1px solid rgba(0, 240, 255, 0.4);
-  padding: 4px 12px;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 3px 10px;
   border-radius: var(--radius-pill);
-  font-family: var(--font-orbitron);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-family: var(--font-main);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .stage-title-group h2 {
-  font-family: var(--font-orbitron);
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  font-family: var(--font-main);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   color: #ffffff;
-  text-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
 }
 
 /* Stage Controls */
@@ -107,22 +106,22 @@
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  font-family: var(--font-orbitron);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: #00f0ff;
+  font-family: var(--font-main);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #e2d4f5;
   cursor: pointer;
-  background: rgba(20, 5, 40, 0.85);
-  border: 1px solid rgba(0, 240, 255, 0.35);
+  background: #17062e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-pill);
   transition: all var(--transition-fast);
 }
 
 .player-tag-pill:hover {
-  background: rgba(30, 8, 60, 0.95);
-  border-color: #00f0ff;
-  box-shadow: 0 0 16px rgba(0, 240, 255, 0.4);
+  background: #220845;
+  border-color: rgba(0, 240, 255, 0.4);
+  color: #ffffff;
 }
 
 .score-display {
@@ -131,34 +130,33 @@
   gap: 6px;
   padding: 6px 14px;
   font-size: 0.82rem;
-  background: rgba(0, 240, 255, 0.1);
-  border: 1px solid rgba(0, 240, 255, 0.35);
+  background: #17062e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-pill);
-  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
 }
 
 .score-label {
-  color: #00f0ff;
-  font-family: var(--font-orbitron);
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  color: #a78bfa;
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
 }
 
 .score-val {
   color: #ffffff;
-  font-weight: 800;
-  font-family: var(--font-orbitron);
-  letter-spacing: 0.06em;
+  font-weight: 700;
+  font-family: var(--font-main);
+  letter-spacing: 0.04em;
 }
 
 /* Stage Action Buttons */
 .stage-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(0, 240, 255, 0.25);
-  background: rgba(20, 5, 40, 0.85);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #17062e;
   color: #00f0ff;
   display: flex;
   align-items: center;
